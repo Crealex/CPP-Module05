@@ -2,7 +2,7 @@
 #include "colors.h"
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(): _grade(150), _name("Alphonso, l'esclave d'une societe capitaliste de plus en plus vacillante")
+Bureaucrat::Bureaucrat(): _grade(150), _name("Alphonso, l'esclave d'une societe capitaliste de plus en plus vacillante meme carrement en declin de ouf enfaite")
 {
 	std::cout << GREEN << "Default Bureaucrat constructor called" << RESET << std::endl;
 }
