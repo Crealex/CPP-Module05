@@ -11,10 +11,15 @@ Bureaucrat::Bureaucrat(unsigned int grade, std::string const name): _name(name)
 {
 	try
 	{
-		//babidou
+		if (grade > 150)
+			throw (Bureaucrat::GradeTooHighException());
+		else if (grade < 0)
+			throw (Bureaucrat::GradeToLowExecption());
+		this->_grade = grade;
 	}
 	catch (std::exception & e)
 	{
+		std::cout << "Error:" << std::endl;
 		std::cout << RED << e.what() << RESET << std::endl;
 	}
 }

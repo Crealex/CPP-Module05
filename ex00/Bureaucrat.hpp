@@ -3,13 +3,15 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "GradeToLowExecption.hpp"
+# include "GradeTooHighException.hpp"
 
-class Bureaucrat
+class Bureaucrat: public GradeToLowExecption, public GradeTooHighException
 {
 	private:
 
-		std::string const	_name;
-		unsigned int		_grade;
+		std::string const		_name;
+		unsigned int			_grade;
 
 
 	public:

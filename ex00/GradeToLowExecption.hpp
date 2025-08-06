@@ -4,15 +4,12 @@
 
 # include <iostream>
 
-class GradeToLowExecption
+class GradeToLowExecption: public std::exception
 {
 	private:
 
 	public:
-		GradeToLowExecption();
-		GradeToLowExecption(const GradeToLowExecption& cpy);
-		~GradeToLowExecption();
-		GradeToLowExecption &operator=(const GradeToLowExecption& rhs);
+		virtual const char *what();
 };
 
 #endif

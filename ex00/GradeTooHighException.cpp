@@ -4,5 +4,5 @@
 
 const char *GradeTooHighException::what()
 {
-	return ("Grade too high !");
+	return ("Grade too high!");
 }
