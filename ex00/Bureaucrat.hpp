@@ -19,6 +19,9 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat& cpy);
 		~Bureaucrat();
 		Bureaucrat &operator=(const Bureaucrat& rhs);
+		Bureaucrat &operator<<(const Bureaucrat& rhs);
+		std::string const getName();
+		int getGrade();
 };
 
 #endif

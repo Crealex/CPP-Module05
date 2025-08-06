@@ -9,7 +9,14 @@ Bureaucrat::Bureaucrat(): _grade(150), _name("Alphonso, l'esclave d'une societe 
 
 Bureaucrat::Bureaucrat(unsigned int grade, std::string const name): _name(name)
 {
-
+	try
+	{
+		//babidou
+	}
+	catch (std::exception & e)
+	{
+		std::cout << RED << e.what() << RESET << std::endl;
+	}
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &cpy)
