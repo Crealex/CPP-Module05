@@ -1,6 +1,7 @@
 NAME = bureaucrat
 SRCS = main.cpp Bureaucrat.cpp
-OBJS	=	${SRCS:%.c=${OBJDIR}/%.o}
+OBJS	=	${SRCS:%.cpp=${OBJDIR}/%.o}
+OBJDIR = objets
 CFLAGS = -Werror -Wextra -Wall -std=c++98 -g
 CC = c++
 
@@ -25,7 +26,7 @@ ${NAME}:	${OBJS}
 	@${CC} ${CFLAGS} ${OBJS} -o ${NAME}
 	@echo "${BOLD}${GREEN}📦 Link complete: ${NAME}${END}"
 
-${OBJDIR}/%.o: %.c | ${OBJDIR}
+${OBJDIR}/%.o: %.cpp | ${OBJDIR}
 	@$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))
 	@printf "${BOLD}${L_PURPLE}⚡ [%2d/%2d] Compiling: %-20s ${END}" $(CURRENT_FILE) $(TOTAL_FILES) "$<"
 	@${CC} ${CFLAGS} -c -o $@ $<
@@ -33,7 +34,6 @@ ${OBJDIR}/%.o: %.c | ${OBJDIR}
 
 ${OBJDIR}:
 	@mkdir -p ${OBJDIR}
-	@mkdir -p ${OBJDIR}/srcs
 	@echo "${BOLD}${BLUE}📁 Created objects directory${END}"
 
 clean:
