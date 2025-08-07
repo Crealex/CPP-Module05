@@ -8,30 +8,31 @@ class Bureaucrat
 {
 	private:
 
-		std::string const		_name;
-		unsigned int			_grade;
+		std::string const	_name;
+		int					_grade;
+
+		void				checkValidity(int grade);
 
 		public:
 
 		Bureaucrat();
-		Bureaucrat(unsigned int grade, std::string const name) throw (std::exception&);
+		Bureaucrat(int grade, std::string const name);
 		Bureaucrat(const Bureaucrat& cpy);
 		~Bureaucrat();
 		Bureaucrat &operator=(const Bureaucrat& rhs);
 
-		std::string	const	getName() const;
+		std::string	const	&getName() const;
 		int					getGrade() const;
-		void				upgrade() throw (std::exception&);
-		void				downgrade() throw(std::exception&);
-		void				checkValidity(int grade) throw (std::exception&);
+		void				upgrade();
+		void				downgrade();
 
-		class GradeToHighException: public std::exception
+		class GradeTooHighException: public std::exception
 		{
 			public:
 			virtual const char *what() const throw();
 		};
 
-		class GradeToLowException: public std::exception
+		class GradeTooLowException: public std::exception
 		{
 			public:
 			virtual const char *what() const throw();

@@ -9,7 +9,7 @@ Bureaucrat::Bureaucrat():_name("Alphonso, l'esclave d'une societe capitaliste de
 	std::cout << LIGHT_CYAN << ITALIC << "Default Bureaucrat constructor called" << RESET << std::endl;
 }
 
-Bureaucrat::Bureaucrat(unsigned int grade, std::string const name) throw (std::exception&): _name(name)
+Bureaucrat::Bureaucrat(int grade, std::string const name): _name(name)
 {
 	std::cout << LIGHT_CYAN << ITALIC << "Specific Bureaucrat constructor called" << RESET << std::endl;
 	checkValidity(grade);
@@ -43,19 +43,19 @@ std::ostream &operator<<(std::ostream &stream, const Bureaucrat &rhs)
 
 // *** EXCEPTION ***
 
-const char *Bureaucrat::GradeToHighException::what() const throw()
+const char *Bureaucrat::GradeTooHighException::what() const throw()
 {
-	return ("Grade to high!");
+	return ("Grade too high!");
 }
 
-const char *Bureaucrat::GradeToLowException::what() const throw()
+const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
-	return ("Grade to low!");
+	return ("Grade too low!");
 }
 
 // *** METHODS ***
 
-const std::string Bureaucrat::getName() const
+const std::string &Bureaucrat::getName() const
 {
 	return (this->_name);
 }
@@ -65,22 +65,24 @@ int Bureaucrat::getGrade() const
 	return (this->_grade);
 }
 
-void Bureaucrat::downgrade() throw (std::exception&)
+void Bureaucrat::downgrade()
 {
 	checkValidity(this->_grade + 1);
+	std::cout << LIGHT_YELLOW << "downgrade " << this->_name << RESET << std::endl;
 	this->_grade++;
 }
 
-void Bureaucrat::upgrade() throw (std::exception&)
+void Bureaucrat::upgrade()
 {
 	checkValidity(this->_grade - 1);
+	std::cout << LIGHT_YELLOW << "upgrade " << this->_name << RESET << std::endl;
 	this->_grade--;
 }
 
-void Bureaucrat::checkValidity(int grade) throw(std::exception&)
+void Bureaucrat::checkValidity(int grade)
 {
 	if (grade > 150)
-		throw (Bureaucrat::GradeToLowException());
+		throw (Bureaucrat::GradeTooLowException());
 	else if (grade < 1)
-		throw (Bureaucrat::GradeToHighException());
+		throw (Bureaucrat::GradeTooHighException());
 }

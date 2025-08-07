@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:58:01 by alexandre         #+#    #+#             */
-/*   Updated: 2025/08/07 14:56:42 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/08/07 21:56:11 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int main()
 	try // Should work
 	{
 		std::cout << BOLD << "Declare a valid grade:" << RESET << std::endl;
-		Bureaucrat Yvan(66, "Yvan");
+		Bureaucrat Yvan(1, "Yvan");
 		std::cout << GREEN << Yvan << RESET << std::endl;
 	}
 	catch(std:: exception &e)
@@ -55,5 +55,23 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+	try
+	{
+		Bureaucrat Yvan(1, "Yvan");
+		std::cout << BOLD << "Try to downgrade Yvan" << RESET << std::endl;
+		std::cout << "Berfore downgrade:" << std::endl;
+		std::cout << GREEN << Yvan << RESET << std::endl;
+		Yvan.downgrade();
+		std::cout << "After downgrade:" << std::endl;
+		std::cout << GREEN << Yvan << RESET << std::endl;
+		std::cout << BOLD << "Try to upgrade Yvan two times" << RESET << std::endl;
+		Yvan.upgrade();
+		Yvan.upgrade();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 	return (0);
 }
