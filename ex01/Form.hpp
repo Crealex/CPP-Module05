@@ -3,6 +3,7 @@
 # define FORM_HPP
 
 # include <iostream>
+# include "Bureaucrat.hpp"
 
 class Form
 {
@@ -15,9 +16,16 @@ class Form
 
 	public:
 		Form();
+		Form(int toSign, int ToExec, const std::string name);
 		Form(const Form& cpy);
 		~Form();
 		Form &operator=(const Form& rhs);
+
+		const std::string	getName() const;
+		int					getGradeToSign() const;
+		int					getGradeToExec() const;
+		bool				getIsSigned() const;
+		void				beSigned(const Bureaucrat&);
 
 		class GradeTooHighException: public std::exception
 		{
@@ -32,5 +40,8 @@ class Form
 		};
 
 };
+
+
+std::ostream &operator<<(std::ostream &stream, const Form& rhs);
 
 #endif FORM_HPP

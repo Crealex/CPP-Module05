@@ -80,6 +80,19 @@ void Bureaucrat::upgrade()
 	this->_grade--;
 }
 
+void Bureaucrat::signForm(Form &form) const
+{
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << LIGHT_RED << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << RESET << std::endl;
+	}
+
+}
+
 void Bureaucrat::checkValidity(int grade)
 {
 	if (grade > 150)
