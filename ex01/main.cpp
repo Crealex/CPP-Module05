@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:58:01 by alexandre         #+#    #+#             */
-/*   Updated: 2025/08/07 21:56:11 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/08/11 16:58:39 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "Bureaucrat.hpp"
-# include "colors.h"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include "colors.h"
 
 int main()
 {
@@ -72,6 +73,17 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << BOLD << "----------FORM TEST----------" << RESET << std::endl;
+	try
+	{
+		Form Invalid(50, 152, "Invalid");
+		std::cout << GREEN << Invalid << RESET << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 
 	return (0);
 }

@@ -5,6 +5,8 @@
 # include <iostream>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 	private:
@@ -44,4 +46,4 @@ class Form
 
 std::ostream &operator<<(std::ostream &stream, const Form& rhs);
 
-#endif FORM_HPP
+#endif
