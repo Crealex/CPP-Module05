@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
+/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:58:01 by alexandre         #+#    #+#             */
-/*   Updated: 2025/08/07 21:56:11 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/08/12 10:49:41 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int main()
 	try // Should not work
 	{
 		std::cout << BOLD << "Declare a too low grade:" << RESET << std::endl;
-		Bureaucrat	Yvette(151, "Yvette");
-		std::cout << GREEN << Yvette << RESET << std::endl;
+		Bureaucrat	yvette(151, "Yvette");
+		std::cout << GREEN << yvette << RESET << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -28,8 +28,8 @@ int main()
 	try // Should not work
 	{
 		std::cout << BOLD << "Declare a too high grade:" << RESET << std::endl;
-		Bureaucrat	Yvon(-1, "Yvon");
-		std::cout << GREEN << Yvon << RESET << std::endl;
+		Bureaucrat	yvon(-1, "Yvon");
+		std::cout << GREEN << yvon << RESET << std::endl;
 	}
 	catch(std::exception &e)
 	{
@@ -38,8 +38,8 @@ int main()
 	try // Should work
 	{
 		std::cout << BOLD << "Declare a valid grade:" << RESET << std::endl;
-		Bureaucrat Yvan(1, "Yvan");
-		std::cout << GREEN << Yvan << RESET << std::endl;
+		Bureaucrat yvan(1, "Yvan");
+		std::cout << GREEN << yvan << RESET << std::endl;
 	}
 	catch(std:: exception &e)
 	{
@@ -48,8 +48,8 @@ int main()
 	try // Should work
 	{
 		std::cout << BOLD << "With a default constructor" << RESET << std::endl;
-		Bureaucrat Alph;
-		std::cout << GREEN << Alph << RESET << std::endl;
+		Bureaucrat alph;
+		std::cout << GREEN << alph << RESET << std::endl;
 	}
 	catch(std::exception& e)
 	{
@@ -57,16 +57,16 @@ int main()
 	}
 	try
 	{
-		Bureaucrat Yvan(1, "Yvan");
+		Bureaucrat yvan(1, "Yvan");
 		std::cout << BOLD << "Try to downgrade Yvan" << RESET << std::endl;
 		std::cout << "Berfore downgrade:" << std::endl;
-		std::cout << GREEN << Yvan << RESET << std::endl;
-		Yvan.downgrade();
+		std::cout << GREEN << yvan << RESET << std::endl;
+		yvan.downgrade();
 		std::cout << "After downgrade:" << std::endl;
-		std::cout << GREEN << Yvan << RESET << std::endl;
+		std::cout << GREEN << yvan << RESET << std::endl;
 		std::cout << BOLD << "Try to upgrade Yvan two times" << RESET << std::endl;
-		Yvan.upgrade();
-		Yvan.upgrade();
+		yvan.upgrade();
+		yvan.upgrade();
 	}
 	catch(const std::exception& e)
 	{
