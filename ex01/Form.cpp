@@ -9,13 +9,11 @@ Form::Form(): _name("Boring form"), _isSigned(0), _gradeToSign(100), _gradeToExe
 	std::cout << GREEN << "Default Form constructor called" << RESET << std::endl;
 }
 
-Form::Form(int toSign, int toExec, std::string name): _name(name), _isSigned(0)
+Form::Form(int toSign, int toExec, std::string name): _name(name), _isSigned(0), _gradeToSign(toSign), _gradeToExec(toExec)
 {
 	std::cout << LIGHT_GREEN << "Constructor Form called" << RESET << std::endl;
 	checkValidity(toSign);
 	checkValidity(toExec);
-	this->_gradeToSign = toSign;
-	this->_gradeToExec = toExec;
 }
 
 Form::Form(const Form &cpy): _name(cpy._name), _isSigned(cpy._isSigned), _gradeToSign(cpy._gradeToSign), _gradeToExec(cpy._gradeToExec)
@@ -35,10 +33,6 @@ Form &Form::operator=(const Form &rhs)
 	std::cout << LIGHT_BLUE << "Form assignment operator called" << RESET << std::endl;
 	if (this->_isSigned != rhs._isSigned)
 		this->_isSigned = rhs._isSigned;
-	if (this->_gradeToSign != rhs._gradeToSign)
-		this->_gradeToSign = rhs._gradeToSign;
-	if (this->_gradeToExec != rhs._gradeToExec)
-		this->_gradeToExec = this->_gradeToSign;
 	return (*this);
 }
 
@@ -86,8 +80,13 @@ void Form::beSigned(const Bureaucrat & bureaucrat)
 {
 	if (bureaucrat.getGrade() <= this->getGradeToSign())
 	{
-		this->_isSigned = true;
-		std::cout << BLUE << bureaucrat.getName() << " signed " << this->getName() << RESET << std::endl;
+		if (this->_isSigned)
+			std::cout << BLUE << this->getName() << "already signed" << RESET << std::endl;
+		else
+		{
+			this->_isSigned = true;
+			std::cout << BLUE << bureaucrat.getName() << " signed " << this->getName() << RESET << std::endl;
+		}
 	}
 	else
 		throw (Form::GradeTooLowException());
