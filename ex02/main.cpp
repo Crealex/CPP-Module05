@@ -6,7 +6,7 @@
 /*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:58:01 by alexandre         #+#    #+#             */
-/*   Updated: 2025/08/14 12:01:08 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/08/14 14:07:52 by atomasi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ int main()
 		ShrubberyCreationForm shrub("My_penthouse");
 		clitorin.signForm(shrub);
 		clitorin.excecuteForm(shrub);
-
 	}
 	catch(const std::exception& e)
 	{

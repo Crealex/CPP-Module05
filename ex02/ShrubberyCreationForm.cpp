@@ -37,8 +37,13 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::doExecute() const
 {
 	std::string filename(this->_target + "_shrubbery");
+	std::ifstream treefile("Tree_ascii_art");
 	std::ofstream shrubbery(filename.c_str());
+	std::string line;
 
-	shrubbery << "Beautifull tree in ascii art";
+	while (std::getline(treefile, line))
+		shrubbery << line << std::endl;
+
 	shrubbery.close();
+	treefile.close();
 }
