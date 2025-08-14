@@ -14,7 +14,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const & target): AForm(
 	std::cout << LIGHT_GREEN << "Specific ShrubberyCreationForm constructor called" << RESET << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &cpy): AForm(145, 137, "ShrubberyCreationForm"), _target(cpy._target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &cpy): AForm(cpy.getGradeToSign(), cpy.getGradeToExec(), cpy.getName()), _target(cpy.getTarget())
 {
 	std::cout << BLUE << "Copy ShrubberyCreationForm constructor called" << RESET << std::endl;
 }
@@ -33,6 +33,11 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 }
 
 // *** METHODDS ***
+
+std::string const ShrubberyCreationForm::getTarget() const
+{
+	return (this->_target);
+}
 
 void ShrubberyCreationForm::doExecute() const
 {
