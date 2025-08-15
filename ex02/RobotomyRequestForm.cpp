@@ -36,3 +36,10 @@ std::string const RobotomyRequestForm::getTarget() const
 {
 	return (this->getTarget());
 }
+
+
+
+void RobotomyRequestForm::doExecute() const
+{
+
+}
