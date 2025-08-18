@@ -56,7 +56,7 @@ void AForm::checkValidity(int grade)
 		throw (AForm::GradeTooHighException());
 }
 
-const std::string AForm::getName() const
+const std::string &AForm::getName() const
 {
 	return (this->_name);
 }

@@ -22,7 +22,7 @@ class AForm
 		~AForm();
 		AForm &operator=(const AForm& rhs);
 
-		const std::string	getName() const;
+		const std::string	&getName() const;
 		int					getGradeToSign() const;
 		int					getGradeToExec() const;
 		bool				getIsSigned() const;

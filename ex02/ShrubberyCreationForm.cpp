@@ -34,7 +34,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 
 // *** METHODDS ***
 
-std::string const ShrubberyCreationForm::getTarget() const
+std::string const &ShrubberyCreationForm::getTarget() const
 {
 	return (this->_target);
 }
