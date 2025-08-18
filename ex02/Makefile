@@ -1,5 +1,5 @@
 NAME = bureaucrat
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
 OBJS	=	${SRCS:%.cpp=${OBJDIR}/%.o}
 OBJDIR = objets
 CFLAGS = -Werror -Wextra -Wall -std=c++98 -g

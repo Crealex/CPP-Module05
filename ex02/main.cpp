@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: atomasi <atomasi@student.42.fr>            +#+  +:+       +#+        */
+/*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:58:01 by alexandre         #+#    #+#             */
-/*   Updated: 2025/08/14 14:07:52 by atomasi          ###   ########.fr       */
+/*   Updated: 2025/08/15 19:08:46 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "AForm.hpp"
 #include "colors.h"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main()
 {
@@ -88,6 +89,19 @@ int main()
 	{
 		std::cerr << e.what() << '\n';
 	}
+	std::cout << BOLD << "*** Robotomy request Form ***" << RESET << std::endl;
+	try
+	{
+		Bureaucrat clitorin(40, "Clitorin");
+		RobotomyRequestForm robotomy("Big_brain");
+		clitorin.signForm(robotomy);
+		clitorin.excecuteForm(robotomy);
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
 
 	return (0);
 }

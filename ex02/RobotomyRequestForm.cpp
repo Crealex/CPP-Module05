@@ -1,6 +1,8 @@
 
 #include "colors.h"
 #include "RobotomyRequestForm.hpp"
+#include <cstdlib>
+#include <ctime>
 
 RobotomyRequestForm::RobotomyRequestForm(): AForm(72, 45, "RobotomyRequestForm"), _target("Michon")
 {
@@ -9,7 +11,7 @@ RobotomyRequestForm::RobotomyRequestForm(): AForm(72, 45, "RobotomyRequestForm")
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const &target): AForm(72, 45, "RobotomyRequestForm"), _target(target)
 {
-	std::cout << LIGHT_GREEN << "Default RobotomyRequestForm constructor called" << RESET << std::endl;
+	std::cout << LIGHT_GREEN << "Specific  RobotomyRequestForm constructor called" << RESET << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &cpy): AForm(cpy.getGradeToSign(), cpy.getGradeToExec(), cpy.getName()), _target(cpy.getTarget())
@@ -34,12 +36,22 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &r
 
 std::string const RobotomyRequestForm::getTarget() const
 {
-	return (this->getTarget());
+	return (this->_target);
 }
 
 
 
 void RobotomyRequestForm::doExecute() const
 {
+	srand(time(0));
 
+	int chance = std::rand() % 2;
+	std::cout << "chance: " << chance << std::endl;
+	if (chance)
+	{
+		std::cout << ITALIC << "BRRRrrrBrrRRrrRRBrrrRRRrrRRBrrrRRrrRRRBrrrRRRRrrRR!" << RESET << std::endl;
+		std::cout << LIGHT_BLUE << this->_target << " has been robotomized successfully!" << RESET << std::endl;
+	}
+	else
+		std::cout << LIGHT_BLUE << "The robotomy request on " << this->_target << " has failed!" << RESET << std::endl;
 }
