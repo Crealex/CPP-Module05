@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:58:01 by alexandre         #+#    #+#             */
-/*   Updated: 2025/08/15 19:08:46 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/08/20 10:07:11 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "colors.h"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentPardonForm.hpp"
 
 int main()
 {
@@ -102,6 +103,33 @@ int main()
 		std::cerr << e.what() << '\n';
 	}
 
+	std::cout << BOLD << "*** President Pardon Form ***" << RESET << std::endl;
+	try // Should not work
+	{
+		std::cout << BOLD << "*** Test with grade to low for execute ***" << RESET << std::endl;
+		Bureaucrat clitorin(25, "Clitorin");
+		PresidentPardonForm oupsi("Oupsii");
+		clitorin.signForm(oupsi);
+		clitorin.excecuteForm(oupsi);
+	}
+
+	catch(const std::exception& e) // Should work
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	try
+	{
+		Bureaucrat clitorin(5, "Clitorin");
+		PresidentPardonForm oupsi("Oupsii");
+		clitorin.signForm(oupsi);
+		clitorin.excecuteForm(oupsi);
+	}
+
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 
 	return (0);
 }
