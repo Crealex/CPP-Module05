@@ -19,7 +19,7 @@ class AForm
 		AForm();
 		AForm(int toSign, int ToExec, const std::string name);
 		AForm(const AForm& cpy);
-		~AForm();
+		virtual ~AForm();
 		AForm &operator=(const AForm& rhs);
 
 		const std::string	&getName() const;

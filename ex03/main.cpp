@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:58:01 by alexandre         #+#    #+#             */
-/*   Updated: 2025/08/20 10:07:11 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/08/21 21:42:10 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentPardonForm.hpp"
+#include "Intern.hpp"
 
 int main()
 {
@@ -126,6 +127,25 @@ int main()
 		clitorin.excecuteForm(oupsi);
 	}
 
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
+
+	std::cout << BOLD << "---------- INTERN TEST ----------" << RESET << std::endl;
+
+	try
+	{
+		AForm *form = NULL;
+		Intern slave;
+		Bureaucrat flibusse(30, "Flibusse");
+
+		form = slave.makeForm("robotomy request", "pipou");
+		flibusse.signForm(*form);
+		flibusse.excecuteForm(*form);
+
+		delete form;
+	}
 	catch(const std::exception& e)
 	{
 		std::cerr << e.what() << '\n';
