@@ -49,6 +49,7 @@ void ShrubberyCreationForm::doExecute() const
 	while (std::getline(treefile, line))
 		shrubbery << line << std::endl;
 
+	std::cout << BOLD << this->_target << "_shrubbery has been created!" << RESET << std::endl;
 	shrubbery.close();
 	treefile.close();
 }

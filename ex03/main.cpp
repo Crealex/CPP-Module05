@@ -6,7 +6,7 @@
 /*   By: alexandre <alexandre@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/06 20:58:01 by alexandre         #+#    #+#             */
-/*   Updated: 2025/08/21 21:42:10 by alexandre        ###   ########.fr       */
+/*   Updated: 2025/08/25 11:14:34 by alexandre        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,9 +138,9 @@ int main()
 	{
 		AForm *form = NULL;
 		Intern slave;
-		Bureaucrat flibusse(30, "Flibusse");
+		Bureaucrat flibusse(1, "Flibusse");
 
-		form = slave.makeForm("robotomy request", "pipou");
+		form = slave.makeForm("shrubbery creation", "pipou");
 		flibusse.signForm(*form);
 		flibusse.excecuteForm(*form);
 
